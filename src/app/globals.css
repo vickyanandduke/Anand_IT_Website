@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@theme {
+  --color-anand-navy: #0b1f3a;
+  --color-anand-blue: #155eef;
+  --color-anand-gold: #d6a84f;
+  --color-anand-background: #f8fafc;
+  --color-anand-text: #111827;
+  --color-anand-muted: #64748b;
+  --color-anand-border: #e2e8f0;
+
+  --font-poppins: "Poppins", sans-serif;
+  --font-lato: "Lato", sans-serif;
+}
+
+:root {
+  --anand-navy: #0b1f3a;
+  --anand-blue: #155eef;
+  --anand-gold: #d6a84f;
+  --anand-background: #f8fafc;
+  --anand-text: #111827;
+  --anand-muted: #64748b;
+  --anand-border: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--anand-text);
+  font-family: var(--font-lato);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--anand-blue);
+  color: #ffffff;
+}
+
+/* Shared layout */
+
+.anand-container {
+  width: min(100% - 40px, 1240px);
+  margin-inline: auto;
+}
+
+.anand-section {
+  padding-block: 96px;
+}
+
+.anand-section-sm {
+  padding-block: 64px;
+}
+
+/* Typography */
+
+.anand-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--anand-blue);
+  font-family: var(--font-poppins);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.anand-eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--anand-gold);
+}
+
+.anand-heading {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.anand-body {
+  color: var(--anand-muted);
+  font-family: var(--font-lato);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* Buttons */
+
+.anand-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-family: var(--font-poppins);
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.anand-button:hover {
+  transform: translateY(-2px);
+}
+
+.anand-button-primary {
+  background: var(--anand-blue);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(21, 94, 239, 0.18);
+}
+
+.anand-button-primary:hover {
+  background: #0f4fd1;
+  box-shadow: 0 12px 28px rgba(21, 94, 239, 0.24);
+}
+
+.anand-button-secondary {
+  border: 1px solid var(--anand-border);
+  background: #ffffff;
+  color: var(--anand-navy);
+}
+
+.anand-button-secondary:hover {
+  border-color: var(--anand-blue);
+  color: var(--anand-blue);
+}
+
+/* Cards */
+
+.anand-card {
+  border: 1px solid var(--anand-border);
+  border-radius: 20px;
+  background: #ffffff;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.anand-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(21, 94, 239, 0.35);
+  box-shadow: 0 18px 45px rgba(11, 31, 58, 0.09);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .anand-container {
+    width: min(100% - 40px, 1240px);
+  }
+
+  .anand-section {
+    padding-block: 72px;
+  }
+
+  .anand-section-sm {
+    padding-block: 48px;
+  }
+
+  .anand-body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .anand-container {
+    width: min(100% - 32px, 1240px);
+  }
+
+  .anand-section {
+    padding-block: 60px;
+  }
+}
