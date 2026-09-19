@@ -8,6 +8,103 @@ import {
   Phone,
 } from 'lucide-react';
 
+const socialLinks = [
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/ananditconsultancy/',
+    label: 'Follow Anand IT Consultancy on Instagram',
+  },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/profile.php?id=61594327269268',
+    label: 'Follow Anand IT Consultancy on Facebook',
+  },
+  {
+    name: 'X',
+    href: 'https://x.com/AnandITConsult',
+    label: 'Follow Anand IT Consultancy on X',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/143890658/',
+    label: 'Follow Anand IT Consultancy on LinkedIn',
+  },
+];
+
+function InstagramIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-[18px] w-[18px]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-[18px] w-[18px]"
+      fill="currentColor"
+    >
+      <path d="M13.5 21v-8h2.75l.5-3h-3.25V8.05c0-.87.29-1.55 1.59-1.55h1.71V3.82c-.3-.04-1.33-.13-2.53-.13-2.5 0-4.22 1.53-4.22 4.35V10H7.25v3H10v8h3.5Z" />
+    </svg>
+  );
+}
+
+function XIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-[17px] w-[17px]"
+      fill="currentColor"
+    >
+      <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.38L6.49 22H3.38l7.24-8.28L3 2h6.4l4.42 5.85L18.9 2Zm-1.1 17.88h1.73L8.48 4H6.62L17.8 19.88Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-[18px] w-[18px]"
+      fill="currentColor"
+    >
+      <path d="M5.2 3.5A2.2 2.2 0 1 1 5.2 7.9a2.2 2.2 0 0 1 0-4.4ZM3.35 9.3h3.7V21h-3.7V9.3ZM9.35 9.3h3.55v1.6h.05c.5-.95 1.75-1.95 3.6-1.95 3.85 0 4.55 2.53 4.55 5.82V21h-3.7v-5.52c0-1.32-.03-3.02-1.84-3.02-1.85 0-2.13 1.44-2.13 2.92V21h-3.7V9.3Z" />
+    </svg>
+  );
+}
+
+function SocialIcon({ name }: { name: string }) {
+  if (name === 'Instagram') {
+    return <InstagramIcon />;
+  }
+
+  if (name === 'Facebook') {
+    return <FacebookIcon />;
+  }
+
+  if (name === 'X') {
+    return <XIcon />;
+  }
+
+  return <LinkedInIcon />;
+}
+
 export default function Footer() {
   return (
     <footer className="bg-anand-navy text-white">
@@ -33,6 +130,29 @@ export default function Footer() {
             <div className="mt-6 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.12em] text-blue-200/60">
               <span className="h-[2px] w-5 bg-anand-gold" />
               Business • Digital • Government
+            </div>
+
+            {/* Social Media */}
+            <div className="mt-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-200/60">
+                Follow us
+              </p>
+
+              <div className="mt-3 flex items-center gap-2">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    title={social.name}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-blue-100/70 transition-all duration-200 hover:-translate-y-0.5 hover:border-anand-gold/50 hover:bg-white/10 hover:text-white"
+                  >
+                    <SocialIcon name={social.name} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
